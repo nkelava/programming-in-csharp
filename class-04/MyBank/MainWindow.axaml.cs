@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Windows;
-using System.Windows.Controls;
+using Avalonia.Controls;
+using Avalonia.Input;
+using Avalonia.Interactivity;
 
 
 namespace MyBank
@@ -13,7 +14,7 @@ namespace MyBank
             accountTypeComboBox.ItemsSource = Enum.GetValues(typeof(AccountType));
         }
 
-        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        private void TextBox_GotFocus(object sender, FocusChangedEventArgs e)
         {
             var textBox = (TextBox)sender;
 
@@ -25,14 +26,14 @@ namespace MyBank
         {
             var textBox = (TextBox)sender;
 
-            if (textBox.Text == string.Empty)
+            if (string.IsNullOrEmpty(textBox.Text))
             {
                 textBox.Text = textBox.Tag.ToString();
                 textBox.GotFocus += TextBox_GotFocus;
             }
         }
 
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -47,15 +48,15 @@ namespace MyBank
                     decimal.Parse(accountBalanceTextBox.Text));
 
                 BankAccounts.Add(newAccount);
-                MessageBox.Show("The user has been successfully added.");
+                await MessageBox.Show(this, "The user has been successfully added.");
             }
             catch (InvalidOperationException)
             {
-                MessageBox.Show("Please enter all the information requested in the form, except the account number.");
+                await MessageBox.Show(this, "Please enter all the information requested in the form, except the account number.");
             }
         }
 
-        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        private async void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -86,7 +87,7 @@ namespace MyBank
             }
             catch (FormatException)
             {
-                MessageBox.Show("Please enter the user's OIB to search.");
+                await MessageBox.Show(this, "Please enter the user's OIB to search.");
             }
         }
 
@@ -110,9 +111,9 @@ namespace MyBank
                     continue;
                 }
 
-                if(childType == typeof(DatePicker))
+                if(childType == typeof(CalendarDatePicker))
                 {
-                    ((DatePicker)child).SelectedDate = null;
+                    ((CalendarDatePicker)child).SelectedDate = null;
                     continue;
                 }
 
