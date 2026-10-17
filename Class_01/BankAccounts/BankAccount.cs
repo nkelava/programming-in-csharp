@@ -2,14 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace task03
+namespace BankAccounts
 {
-    enum AccountType
-    {
-        Savings,
-        Gyro,
-        Current
-    }
     class BankAccount
     {
         public int Id { get; set; }

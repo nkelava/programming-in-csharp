@@ -3,19 +3,6 @@
 
 namespace MyBank
 {
-    enum AccountType
-    {
-        Savings,
-        Gyro,
-        Current
-    }
-
-    enum SexType
-    {
-        Male,
-        Female
-    }
-
     class Account
     {
         public string FirstName { get; private set; }

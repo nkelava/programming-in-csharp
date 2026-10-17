@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 
 
-namespace Labs
+namespace ShapeEvents
 {
 	/// <summary>
 	/// Summary description for Square.

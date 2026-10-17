@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task01", "task01.csproj", "{A60C4BC5-DF98-43C7-A0D7-A6CC91245DD8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberFormatting", "NumberFormatting\NumberFormatting.csproj", "{A60C4BC5-DF98-43C7-A0D7-A6CC91245DD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task02", "..\task02\task02.csproj", "{A6644B97-208F-42B9-805E-015EAB6C68B2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OverflowChecking", "OverflowChecking\OverflowChecking.csproj", "{A6644B97-208F-42B9-805E-015EAB6C68B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task03", "..\task03\task03.csproj", "{D6008A53-5532-4A10-AD9A-1896ED46EBFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccounts", "BankAccounts\BankAccounts.csproj", "{D6008A53-5532-4A10-AD9A-1896ED46EBFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using BankTransferSlip.Exceptions;
 using BankTransferSlip.Entities;
+using BankTransferSlip.Services;
 
 
 namespace BankTransferSlip

@@ -58,7 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Entities\FileHandler.cs" />
+    <Compile Include="Services\FileHandler.cs" />
     <Compile Include="Entities\Game.cs" />
     <Compile Include="Entities\GameStatus.cs" />
     <Compile Include="Entities\GameType.cs" />
@@ -132,10 +132,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="TicTacToeIcon.ico" />
+    <Resource Include="Images\AppIcon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="pngwing.com.png" />
+    <Resource Include="Images\Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

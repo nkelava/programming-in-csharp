@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TicTacToe"
         mc:Ignorable="d"
-        Title="Ultimate Tic-Tac-Toe" Height="260" Width="350" Icon="TicTacToeIcon.ico"
+        Title="Ultimate Tic-Tac-Toe" Height="260" Width="350" Icon="Images/AppIcon.ico"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
     <Grid Background="#FFFDFD99">
-        <Image HorizontalAlignment="Left" Height="87" Margin="53,16,0,0" VerticalAlignment="Top" Width="232" Source="pngwing.com.png"/>
+        <Image HorizontalAlignment="Left" Height="87" Margin="53,16,0,0" VerticalAlignment="Top" Width="232" Source="Images/Logo.png"/>
         <Label Name="lblGameResult" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="53,108,0,0" Width="232" FontWeight="SemiBold" FontSize="28" Foreground="#FF3498DB"/>
 
         <Button Name="btnPlayAgain" Content="Play again" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="53,178,0,0" RenderTransformOrigin="0.5,0.5" Background="#FF35D479" Foreground="White" Height="28" Click="btnPlayAgain_Click"/>

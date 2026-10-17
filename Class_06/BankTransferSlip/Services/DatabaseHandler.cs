@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using BankTransferSlip.Entities;
 
 
-namespace BankTransferSlip
+namespace BankTransferSlip.Services
 {
     class DatabaseHandler
     {

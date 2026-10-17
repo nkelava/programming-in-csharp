@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TicTacToe"
         mc:Ignorable="d"
-        Title="Ultimate Tic-Tac-Toe" Height="450" Width="800" Icon="TicTacToeIcon.ico"
+        Title="Ultimate Tic-Tac-Toe" Height="450" Width="800" Icon="Images/AppIcon.ico"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
 
@@ -20,7 +20,7 @@
     </Window.Resources>
 
     <Grid Background="#FFFDFD99" Margin="5,0,-5,0">
-        <Image HorizontalAlignment="Left" Height="87" Margin="282,35,0,0" VerticalAlignment="Top" Width="232" Source="pngwing.com.png"/>
+        <Image HorizontalAlignment="Left" Height="87" Margin="282,35,0,0" VerticalAlignment="Top" Width="232" Source="Images/Logo.png"/>
 
         <Button Name="btnPvp" Content="Player vs Player" HorizontalAlignment="Left" Margin="285,157,0,0" VerticalAlignment="Top" Width="232" Height="31" Click="btnPvp_Click" />
         <Button Name="btnPvc" Content="Player vs Computer" HorizontalAlignment="Left" Margin="285,207,0,0" VerticalAlignment="Top" Width="232" Height="31" Click="btnPvc_Click"/>

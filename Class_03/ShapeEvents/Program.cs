@@ -1,11 +1,11 @@
 using System;
 using System.Collections;
 
-namespace Labs
+namespace ShapeEvents
 {
 	/// <summary>
 	/// </summary>
-	class Lab1App
+	class Program
 	{	
 
 		/// <summary>

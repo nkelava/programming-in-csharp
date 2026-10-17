@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using BankTransferSlip.Entities;
+using BankTransferSlip.Services;
 
 namespace BankTransferSlip
 {

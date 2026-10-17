@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace task03
+namespace BankAccounts
 {
     class Program
     {

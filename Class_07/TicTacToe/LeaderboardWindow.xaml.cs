@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
 using TicTacToe.Entities;
+using TicTacToe.Services;
 
 namespace TicTacToe
 {

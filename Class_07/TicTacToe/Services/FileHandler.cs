@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using TicTacToe.Entities;
 
 
-namespace TicTacToe.Entities
+namespace TicTacToe.Services
 {
     public class FileHandler
     {

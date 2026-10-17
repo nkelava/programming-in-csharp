@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Labs
+namespace ShapeEvents
 {
     public class Triangle : Shape
     {

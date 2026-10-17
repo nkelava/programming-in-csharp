@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace task02
+namespace OverflowChecking
 {
     class Program
     {

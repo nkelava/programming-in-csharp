@@ -1,6 +1,6 @@
 using System;
 
-namespace Labs
+namespace ShapeEvents
 {
 	/// <summary>
 	/// Summary description for Shape.

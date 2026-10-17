@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="850">
     <Grid Name="gridSlip" Margin="0,0,2,1">
-        <Image Name="img"  HorizontalAlignment="Left" Height="414" VerticalAlignment="Top" Width="749" Source="hub-3a-interaktivni-1.png" Margin="44,0,0,0"/>
+        <Image Name="img"  HorizontalAlignment="Left" Height="414" VerticalAlignment="Top" Width="749" Source="Images/PaymentSlip.png" Margin="44,0,0,0"/>
         <CheckBox Name="chkBoxUrgent" Content="" HorizontalAlignment="Left" Margin="338,26,0,0" VerticalAlignment="Top" RenderTransformOrigin="1,-0.3" Height="22" Width="24" IsChecked="False"/>
         <TextBox Name="txtBoxPayerName" HorizontalAlignment="Left" Height="29" Margin="72,39,0,0" TextWrapping="Wrap" Text="Enter name..." VerticalAlignment="Top" Width="209" GotFocus="TextBox_GotFocus" Tag="Enter name..." LostFocus="TextBox_LostFocus"/>
         <TextBox Name="txtBoxPayerAddress" HorizontalAlignment="Left" Height="40" Margin="72,73,0,0" TextWrapping="Wrap" Text="Enter address..." VerticalAlignment="Top" Width="209" Tag="Enter address..." GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
