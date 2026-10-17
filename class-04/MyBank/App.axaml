@@ -12,6 +12,7 @@
             <Setter Property="Padding" Value="1"/>
         </Style>
         <Style Selector="TextBox">
+            <Setter Property="Text" Value=""/>
             <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden"/>
         </Style>
     </Application.Styles>
