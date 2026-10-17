@@ -3,9 +3,6 @@ using System.Collections;
 
 namespace ShapeEvents
 {
-	/// <summary>
-	/// Summary description for Circle.
-	/// </summary>
 	public class Circle:Shape
 	{
 		private double radius;	

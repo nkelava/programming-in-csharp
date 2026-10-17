@@ -5,9 +5,6 @@ using TicTacToe.Services;
 
 namespace TicTacToe
 {
-    /// <summary>
-    /// Interaction logic for LeaderboardWindow.xaml
-    /// </summary>
     public partial class LeaderboardWindow : Window
     {
         public LeaderboardWindow()
@@ -16,7 +13,6 @@ namespace TicTacToe
             var fileHandler = new FileHandler(@"D:\ProjDev\C#\Lab_vjezbe_C#\vjezba07\TicTacToe\Leaderboard\leaderboard.json");
             var players = fileHandler.ReadFromFile();
 
-            // ListView
             listViewUsers.ItemsSource = players;
         }
 

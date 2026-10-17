@@ -8,10 +8,6 @@ using BankTransferSlip.Services;
 
 namespace BankTransferSlip
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    ///
     // **********************************************
     //
     // 1. Add conversion to a single currency for the database

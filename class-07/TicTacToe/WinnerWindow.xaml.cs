@@ -5,9 +5,6 @@ using TicTacToe.Entities;
 
 namespace TicTacToe
 {
-    /// <summary>
-    /// Interaction logic for WinnerWindow.xaml
-    /// </summary>
     public partial class WinnerWindow : Window
     {
         public WinnerWindow(Player player, GameStatus gameStatus)

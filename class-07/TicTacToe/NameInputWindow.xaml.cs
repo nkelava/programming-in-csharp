@@ -5,9 +5,6 @@ using TicTacToe.Entities;
 
 namespace TicTacToe
 {
-    /// <summary>
-    /// Interaction logic for NameInputWindow.xaml
-    /// </summary>
     public partial class NameInputWindow : Window
     {
         private string _inputPlaceholder = "Enter username...";

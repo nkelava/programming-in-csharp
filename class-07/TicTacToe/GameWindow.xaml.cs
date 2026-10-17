@@ -11,9 +11,6 @@ using TicTacToe.Services;
 
 namespace TicTacToe
 {
-    /// <summary>
-    /// Interaction logic for GameWindow.xaml
-    /// </summary>
     public partial class GameWindow : Window
     {
         private static Game _game;

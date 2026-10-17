@@ -4,9 +4,6 @@ using System.Collections;
 
 namespace ShapeEvents
 {
-	/// <summary>
-	/// Summary description for Square.
-	/// </summary>
 	public class Square:Shape
 	{
 		private double oneSide;		

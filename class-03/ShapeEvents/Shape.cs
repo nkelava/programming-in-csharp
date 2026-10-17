@@ -2,9 +2,6 @@ using System;
 
 namespace ShapeEvents
 {
-	/// <summary>
-	/// Summary description for Shape.
-	/// </summary>
 	public abstract class Shape
 	{
 		protected double xPos;

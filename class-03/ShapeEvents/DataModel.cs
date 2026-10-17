@@ -3,9 +3,6 @@ using System.Collections;
 
 namespace ShapeEvents
 {
-	/// <summary>
-	/// Summary description for DataModel.
-	/// </summary>
 	public class DataModel
 	{
 		private static ArrayList ALL_ELEMENTS;
@@ -42,9 +39,6 @@ namespace ShapeEvents
 		{
 			ALL_ELEMENTS = new ArrayList();
 		}
-		/// <summary>
-		/// </summary>
-		/// <returns></returns>
 		public static double getNewXPos()
 		{
 			if(ALL_ELEMENTS.Count == 0)

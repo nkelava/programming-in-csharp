@@ -3,14 +3,9 @@ using System.Collections;
 
 namespace ShapeEvents
 {
-	/// <summary>
-	/// </summary>
 	class Program
 	{	
 
-		/// <summary>
-		/// The main entry point for the application.
-		/// </summary>
 		[STAThread]
 		static void Main(string[] args)
 		{

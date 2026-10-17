@@ -4,9 +4,6 @@ using BankTransferSlip.Services;
 
 namespace BankTransferSlip
 {
-    /// <summary>
-    /// Interaction logic for SearchResultWindow.xaml
-    /// </summary>
     public partial class SearchResultWindow : Window
     {
         public SearchResultWindow()
