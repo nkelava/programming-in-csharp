@@ -24,14 +24,20 @@ namespace CurrencyConverter
         {
             try
             {
-                var result = (ParseDecimal(amount) * ParseDecimal(currFrom.MiddleRate));
-                result /= ParseDecimal(currTo.MiddleRate);
+                var result = (ParseDecimal(amount) * RatePerUnit(currFrom));
+                result /= RatePerUnit(currTo);
                 return Math.Round(result, 2);
             }
             catch
             {
                 return 0;
             }
+        }
+
+        // A rate is given for "Unit" units of a currency, for example for 100 JPY
+        private static decimal RatePerUnit(Currency currency)
+        {
+            return ParseDecimal(currency.MiddleRate) / ParseDecimal(currency.Unit);
         }
 
         // Accepts both "1,5" and "1.5" regardless of the language settings of the computer
