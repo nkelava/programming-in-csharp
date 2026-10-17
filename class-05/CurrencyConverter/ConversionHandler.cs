@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Net;
+using System.Net.Http;
 
 
 namespace CurrencyConverter
@@ -14,7 +14,7 @@ namespace CurrencyConverter
 
         public ConversionHandler()
         {
-            var jsonObject = new WebClient().DownloadString(API);
+            var jsonObject = new HttpClient().GetStringAsync(API).GetAwaiter().GetResult();
             CurrencyList = new ObservableCollection<Currency>();
             CurrencyList = JsonConvert.DeserializeObject<ObservableCollection<Currency>>(jsonObject);
         }
