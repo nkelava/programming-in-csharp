@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
@@ -35,59 +36,69 @@ namespace MyBank
 
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                var newAccount = new Account(
-                    nameTextBox.Text,
-                    lastNameTextBox.Text,
-                    (DateTime)birthdayDatePicker.SelectedDate,
-                    long.Parse(oibTextBox.Text),
-                    (maleRadioButton.IsChecked == true) ? SexType.Male : SexType.Female,
-                    BankAccounts.GenerateAccountNumber(),
-                    (AccountType)accountTypeComboBox.SelectedItem,
-                    decimal.Parse(accountBalanceTextBox.Text));
-
-                BankAccounts.Add(newAccount);
-                await MessageBox.Show(this, "The user has been successfully added.");
-            }
-            catch (InvalidOperationException)
+            if (birthdayDatePicker.SelectedDate == null || accountTypeComboBox.SelectedItem == null)
             {
                 await MessageBox.Show(this, "Please enter all the information requested in the form, except the account number.");
+                return;
             }
+
+            if (!long.TryParse(oibTextBox.Text, out long oib) || !TryParseDecimal(accountBalanceTextBox.Text, out decimal balance))
+            {
+                await MessageBox.Show(this, "Please enter the OIB and the account balance as numbers.");
+                return;
+            }
+
+            var newAccount = new Account(
+                nameTextBox.Text,
+                lastNameTextBox.Text,
+                birthdayDatePicker.SelectedDate.Value,
+                oib,
+                (maleRadioButton.IsChecked == true) ? SexType.Male : SexType.Female,
+                BankAccounts.GenerateAccountNumber(),
+                (AccountType)accountTypeComboBox.SelectedItem,
+                balance);
+
+            BankAccounts.Add(newAccount);
+            await MessageBox.Show(this, "The user has been successfully added.");
+        }
+
+        // Accepts both "1,5" and "1.5" regardless of the language settings of the computer
+        private static bool TryParseDecimal(string input, out decimal value)
+        {
+            return decimal.TryParse(input.Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out value);
         }
 
         private async void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                Tuple<bool, Account> searchResult = BankAccounts.SearchAccount(long.Parse(oibTextBox.Text));
-
-                if (searchResult.Item1)
-                {
-                    Account account = searchResult.Item2;
-
-                    nameTextBox.Text = account.FirstName;
-                    lastNameTextBox.Text = account.LastName;
-                    oibTextBox.Text = account.OIB.ToString();
-                    birthdayDatePicker.SelectedDate = account.Birthday;
-
-                    if (account.Sex == SexType.Male)
-                    {
-                        SetSexRadioButton(true, false);
-                    }
-                    else
-                    {
-                        SetSexRadioButton(false, true);
-                    }
-
-                    accountTypeComboBox.SelectedItem = account.Type;
-                    accountBalanceTextBox.Text = account.Balance.ToString();
-                    accountNumberTextBox.Text = account.ID.ToString();
-                }
-            }
-            catch (FormatException)
+            if (!long.TryParse(oibTextBox.Text, out long oib))
             {
                 await MessageBox.Show(this, "Please enter the user's OIB to search.");
+                return;
+            }
+
+            Tuple<bool, Account> searchResult = BankAccounts.SearchAccount(oib);
+
+            if (searchResult.Item1)
+            {
+                Account account = searchResult.Item2;
+
+                nameTextBox.Text = account.FirstName;
+                lastNameTextBox.Text = account.LastName;
+                oibTextBox.Text = account.OIB.ToString();
+                birthdayDatePicker.SelectedDate = account.Birthday;
+
+                if (account.Sex == SexType.Male)
+                {
+                    SetSexRadioButton(true, false);
+                }
+                else
+                {
+                    SetSexRadioButton(false, true);
+                }
+
+                accountTypeComboBox.SelectedItem = account.Type;
+                accountBalanceTextBox.Text = account.Balance.ToString();
+                accountNumberTextBox.Text = account.ID.ToString();
             }
         }
 
