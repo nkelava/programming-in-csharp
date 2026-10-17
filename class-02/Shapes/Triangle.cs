@@ -27,7 +27,7 @@ namespace Shapes
 		{
 			Console.WriteLine();
 			Console.WriteLine($"My type: {this.GetType()}");
-			Console.WriteLine($"Side of triangle = {this.side}");
+			Console.WriteLine($"Side of the triangle = {this.side}");
 			Console.WriteLine($"X position = {xPos}");
 			Console.WriteLine($"Y position = {yPos}");
 		}

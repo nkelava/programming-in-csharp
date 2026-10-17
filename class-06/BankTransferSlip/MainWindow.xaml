@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankTransferSlip"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="850">
+        Title="Bank Transfer Slip" Height="500" Width="850">
     <Grid Name="gridSlip" Margin="0,0,2,1">
         <Image Name="img"  HorizontalAlignment="Left" Height="414" VerticalAlignment="Top" Width="749" Source="Images/PaymentSlip.png" Margin="44,0,0,0"/>
         <CheckBox Name="chkBoxUrgent" Content="" HorizontalAlignment="Left" Margin="338,26,0,0" VerticalAlignment="Top" RenderTransformOrigin="1,-0.3" Height="22" Width="24" IsChecked="False"/>
@@ -16,9 +16,9 @@
         <TextBox Name="txtBoxCurrency" HorizontalAlignment="Left" Height="24" Margin="422,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="51" Background="Transparent" VerticalContentAlignment="Center" MaxLength="3" Padding="0" UseLayoutRounding="True"/>
         <TextBox Name="txtBoxAmount" HorizontalAlignment="Left" Height="24" Margin="524,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" Background="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
         <TextBox Name="txtBoxPayerIBAN" HorizontalAlignment="Left" Height="24" Margin="422,54,0,0" TextWrapping="Wrap" Background="Transparent" VerticalAlignment="Top" Width="356" VerticalContentAlignment="Center"/>
-        <TextBox Name="txtBoxRecipinetIBAN" HorizontalAlignment="Left" Height="23" Margin="422,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="356" Background="Transparent" VerticalContentAlignment="Center" MaxLength="21"/>
+        <TextBox Name="txtBoxRecipientIBAN" HorizontalAlignment="Left" Height="23" Margin="422,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="356" Background="Transparent" VerticalContentAlignment="Center" MaxLength="21"/>
         <TextBox Name="txtBoxModel" HorizontalAlignment="Left" Height="25" Margin="303,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68" RenderTransformOrigin="0.533,0.304" Background="Transparent" MaxLength="4" VerticalContentAlignment="Center"/>
-        <TextBox Name="txtBoxCallNumber" HorizontalAlignment="Left" Height="25" Margin="404,164,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="374" Background="Transparent" MaxLength="22" VerticalContentAlignment="Center"/>
+        <TextBox Name="txtBoxReferenceNumber" HorizontalAlignment="Left" Height="25" Margin="404,164,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="374" Background="Transparent" MaxLength="22" VerticalContentAlignment="Center"/>
         
         <Button Name="btnProcess" Content="Process" HorizontalAlignment="Left" Margin="211,425,0,0" VerticalAlignment="Top" Width="95" Height="28" Click="btnProcess_Click"/>
         <Button Name="btnClear" Content="Clear" HorizontalAlignment="Left" Margin="361,425,0,0" VerticalAlignment="Top" Width="95" Height="28" RenderTransformOrigin="1.516,0.893" Click="btnClear_Click"/>

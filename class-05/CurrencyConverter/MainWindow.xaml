@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CurrencyConverter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Currency Converter" Height="450" Width="800">
     <Grid>
         <Label HorizontalAlignment="Center" Margin="278,33,290,0" VerticalAlignment="Top" FontSize="26" FontWeight="SemiBold" Width="224">
-            <TextBlock TextDecorations="Underline" Height="37" Width="224">Currecy Converter</TextBlock>
+            <TextBlock TextDecorations="Underline" Height="37" Width="224">Currency Converter</TextBlock>
         </Label>
 
         <Label Content="Convert from:" HorizontalAlignment="Left" Margin="144,127,0,0" VerticalAlignment="Top" Width="100" Padding="5" FontWeight="SemiBold"/>
-        <ComboBox Name="cmbBoxFrom" HorizontalAlignment="Left" DisplayMemberPath="valuta" SelectedValuePath="srednji_tecaj" SelectedIndex="0" VerticalAlignment="Top" Width="210" Margin="144,158,0,0" Height="29" DropDownClosed="FromDropDownClosed" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <ComboBox Name="cmbBoxFrom" HorizontalAlignment="Left" DisplayMemberPath="Code" SelectedValuePath="MiddleRate" SelectedIndex="0" VerticalAlignment="Top" Width="210" Margin="144,158,0,0" Height="29" DropDownClosed="FromDropDownClosed" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <TextBox Name="txtBoxFrom" HorizontalAlignment="Left" Height="23" Margin="144,204,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="210" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" TextChanged="txtBoxFrom_TextChanged" Padding="0,0,5,0"/>
 
         <Label Content="Convert to:" HorizontalAlignment="Left" Margin="440,127,0,0" VerticalAlignment="Top" Width="100" Padding="5" RenderTransformOrigin="3.558,0.536" FontWeight="SemiBold"/>
-        <ComboBox Name="cmbBoxTo" HorizontalAlignment="Left" DisplayMemberPath="valuta" SelectedValuePath="srednji_tecaj" SelectedIndex="0" Margin="440,158,0,0" VerticalAlignment="Top" Width="210" Height="29" DropDownClosed="ToDropDownClosed" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <ComboBox Name="cmbBoxTo" HorizontalAlignment="Left" DisplayMemberPath="Code" SelectedValuePath="MiddleRate" SelectedIndex="0" Margin="440,158,0,0" VerticalAlignment="Top" Width="210" Height="29" DropDownClosed="ToDropDownClosed" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <TextBox Name="txtBoxTo" HorizontalAlignment="Left" Height="23" Margin="440,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" IsReadOnly="True" Padding="0,0,5,0"/>
     </Grid>
 </Window>

@@ -74,7 +74,7 @@ namespace TicTacToe.Entities
         {
             int listLength = _winCombinations.Count;
             
-            // Player can't win before 4th move so there is no need for checking
+            // A player can't win before the 5th move, so there is no need to check earlier
             if (_moveCounter > 4)
             {
                 for (int index = 0; index < listLength; index += 3)

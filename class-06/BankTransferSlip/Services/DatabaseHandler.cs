@@ -90,7 +90,7 @@ namespace BankTransferSlip.Services
             var addSlipQuery = $"INSERT INTO tbl_Slips " +
                                $"([Payer_Id],[Recipient_Id],[Urgent],[Currency],[Amount],[Model],[CallNumber]) " +
                                $"VALUES ('{payerId}','{recipientId}','{slip.Urgent}','{slip.Currency}'," +
-                               $"'{slip.Amount}','{slip.Model}','{slip.CallNumber}')";
+                               $"'{slip.Amount}','{slip.Model}','{slip.ReferenceNumber}')";
 
             ExecuteQuery(addSlipQuery);
         }

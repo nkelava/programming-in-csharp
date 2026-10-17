@@ -70,7 +70,7 @@ namespace BankAccounts
             {
                 Console.Clear();
 
-                Console.WriteLine($"1. {AccountType.Savings}\n2. {AccountType.Gyro}\n3. {AccountType.Current}");
+                Console.WriteLine($"1. {AccountType.Savings}\n2. {AccountType.Giro}\n3. {AccountType.Current}");
 
                 Console.Write("\n\nChoose account type: ");
                 userInput = Console.ReadLine();
@@ -80,7 +80,7 @@ namespace BankAccounts
                     case "1":
                         return AccountType.Savings;
                     case "2":
-                        return AccountType.Gyro;
+                        return AccountType.Giro;
                     case "3":
                         return AccountType.Current;
                     default:
@@ -107,7 +107,7 @@ namespace BankAccounts
                 }
             }
 
-            Console.Write("\n\nPress anything to go back...");
+            Console.Write("\n\nPress any key to go back...");
             Console.ReadKey();
         }
     }

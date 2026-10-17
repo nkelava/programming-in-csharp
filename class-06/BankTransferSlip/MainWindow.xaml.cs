@@ -14,8 +14,8 @@ namespace BankTransferSlip
     ///
     // **********************************************
     //
-    // 1. Add converting to one currency for databas
-    // 2. Add lower case data checking
+    // 1. Add conversion to a single currency for the database
+    // 2. Add lowercase data validation
     //
     // **********************************************
     public partial class MainWindow : Window
@@ -70,9 +70,9 @@ namespace BankTransferSlip
                             txtBoxCurrency.Text.ToUpper(),
                             decimal.Parse(FixFormat(txtBoxAmount.Text)),
                             ToUpperSubstring(txtBoxPayerIBAN.Text, 0, 2),
-                            ToUpperSubstring(txtBoxRecipinetIBAN.Text, 0, 2),   
+                            ToUpperSubstring(txtBoxRecipientIBAN.Text, 0, 2),   
                             ToUpperSubstring(txtBoxModel.Text, 0, 2),
-                            txtBoxCallNumber.Text);
+                            txtBoxReferenceNumber.Text);
                 
                 newSlip.CheckFields();
                 SaveRecordToDatabase(newSlip);
@@ -82,7 +82,7 @@ namespace BankTransferSlip
             }
             catch (FormatException)
             {
-                MessageBox.Show("Amount error. Please, make sure you only enter digits.");
+                MessageBox.Show("Amount error. Please make sure you only enter digits.");
             }
             catch (CurrencyFormatException currencyException)
             {
@@ -96,9 +96,9 @@ namespace BankTransferSlip
             {
                 MessageBox.Show(modelException.Message);
             }
-            catch (CallNumberFormatException callNumberException)
+            catch (ReferenceNumberFormatException referenceNumberException)
             {
-                MessageBox.Show(callNumberException.Message);
+                MessageBox.Show(referenceNumberException.Message);
             }
         }
 

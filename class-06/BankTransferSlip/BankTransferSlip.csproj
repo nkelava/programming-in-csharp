@@ -73,7 +73,7 @@
     <Compile Include="Entities\BaseUser.cs" />
     <Compile Include="Exceptions\CurrencyFormatException.cs" />
     <Compile Include="Services\DatabaseHandler.cs" />
-    <Compile Include="Exceptions\CallNumberFormatException.cs" />
+    <Compile Include="Exceptions\ReferenceNumberFormatException.cs" />
     <Compile Include="Exceptions\ModelFormatException.cs" />
     <Compile Include="Exceptions\IBANFormatException.cs" />
     <Compile Include="SearchResultWindow.xaml.cs">

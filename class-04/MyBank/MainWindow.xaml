@@ -26,7 +26,7 @@
         <TextBox Name="oibTextBox" HorizontalAlignment="Left" Height="23" Margin="146,197,0,0" TextWrapping="Wrap" Text="Enter your OIB..." VerticalAlignment="Top" Width="211" Grid.ColumnSpan="2" VerticalContentAlignment="Center" Background="#FFE5E5E5" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Tag="Enter your OIB..."/>
 
         <Label Content="Birthday:" HorizontalAlignment="Left" Margin="60,241,0,0" VerticalAlignment="Top" FontWeight="SemiBold" FontSize="14"/>
-        <DatePicker Name="birtdayDatePicker" HorizontalAlignment="Left" Margin="146,245,0,0" VerticalAlignment="Top" Width="211" RenderTransformOrigin="0.433,0.711" Grid.ColumnSpan="2" VerticalContentAlignment="Center" Cursor="None" Background="#FFE5E5E5"/>
+        <DatePicker Name="birthdayDatePicker" HorizontalAlignment="Left" Margin="146,245,0,0" VerticalAlignment="Top" Width="211" RenderTransformOrigin="0.433,0.711" Grid.ColumnSpan="2" VerticalContentAlignment="Center" Cursor="None" Background="#FFE5E5E5"/>
 
         <Label Content="Sex:" HorizontalAlignment="Left" Margin="60,284,0,0" VerticalAlignment="Top" FontWeight="SemiBold" FontSize="14"/>
         <RadioButton Name="maleRadioButton" Content="Male" HorizontalAlignment="Left" Margin="147,293,0,0" VerticalAlignment="Top" Width="52" Height="24"/>

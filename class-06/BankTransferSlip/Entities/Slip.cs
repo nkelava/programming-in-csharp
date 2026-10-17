@@ -13,13 +13,13 @@ namespace BankTransferSlip.Entities
         public string Currency { get; private set; }
         public decimal Amount { get; private set; } 
         public string  Model { get; private set; }
-        public string CallNumber { get; private set; }
+        public string ReferenceNumber { get; private set; }
 
         public Slip(string payerFullName, string payerAddress, 
                     string recipientFullName, string recipientAddress,
                     bool urgent, string currency,
                     decimal amount, string payerIBAN, string recipientIBAN, 
-                    string model, string callNumber)
+                    string model, string referenceNumber)
         {
             Payer = new User(payerFullName, payerAddress, payerIBAN);
             Payer.IncrementIncomingCounter();
@@ -32,32 +32,32 @@ namespace BankTransferSlip.Entities
             Currency = currency;
             Amount = amount;
             Model = model;
-            CallNumber = callNumber;
+            ReferenceNumber = referenceNumber;
         }
 
         public void CheckFields()
         {
             if (!Regex.IsMatch(this.Currency, @"^[a-zA-Z]+$"))
             {
-                throw new CurrencyFormatException("Currency format error.\n\nCurrency should consist of 3 letters eg. EUR.");
+                throw new CurrencyFormatException("Currency format error.\n\nThe currency should consist of 3 letters, e.g. EUR.");
             }
             if (!Regex.IsMatch(this.Recipient.IBAN, @"^([a-zA-Z]{2})([0-9]{19})$"))
             {
-                throw new IBANFormatException("IBAN format error.\n\nIBAN consists of 2 letters and 19 digits.\nEg. HR0123456789123456789");
+                throw new IBANFormatException("IBAN format error.\n\nAn IBAN consists of 2 letters and 19 digits.\nE.g. HR0123456789123456789");
             }
             if (!Regex.IsMatch(this.Model, @"^([a-zA-Z]{2})([0-9]{2})$"))
             {
-                throw new ModelFormatException("Model format error.\n\nModel consists of 2 letters and 2 digits.\nEg. HR00");
+                throw new ModelFormatException("Model format error.\n\nThe model consists of 2 letters and 2 digits.\nE.g. HR00");
             }
 
-            int digitCount = CallNumber.Count(c => Char.IsDigit(c));
-            int hyphenCount = CallNumber.Count(c => c == '-');
+            int digitCount = ReferenceNumber.Count(c => Char.IsDigit(c));
+            int hyphenCount = ReferenceNumber.Count(c => c == '-');
             
             if (digitCount != (22 - hyphenCount) || hyphenCount < 0 || hyphenCount > 2)
             {
-                throw new CallNumberFormatException("Call number format exception.\n\n" +
-                    "Call number consists of 22 characters: up to 2 '-' and up to 22 digits(depending on '-'.\n" +
-                    "Eg. 0123456789-01234-56789 or 01234567891-0123456789 or 0123456789012345678901");
+                throw new ReferenceNumberFormatException("Reference number format error.\n\n" +
+                    "The reference number consists of 22 characters: up to 2 hyphens ('-') and digits for the rest.\n" +
+                    "E.g. 0123456789-01234-56789 or 01234567891-0123456789 or 0123456789012345678901");
             }
         }
     }

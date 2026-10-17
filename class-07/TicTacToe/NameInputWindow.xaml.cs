@@ -24,7 +24,7 @@ namespace TicTacToe
             InitializeComponent();
             _gameType = gameType;
 
-            // Disable P2 input if it's PVC game mode
+            // Disable the Player 2 input in Player vs Computer mode
             if (_gameType.Equals(GameType.PVC))
             {
                 txtBoxNamePlayer2.IsEnabled = false;
@@ -72,7 +72,7 @@ namespace TicTacToe
             }
             else
             {
-                MessageBox.Show("Usernames should be different.\nPlease, change one of them.");
+                MessageBox.Show("Usernames must be different.\nPlease change one of them.");
             }
         }
     }

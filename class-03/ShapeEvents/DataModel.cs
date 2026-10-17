@@ -4,7 +4,7 @@ using System.Collections;
 namespace ShapeEvents
 {
 	/// <summary>
-	/// Summary description for DataModell.
+	/// Summary description for DataModel.
 	/// </summary>
 	public class DataModel
 	{

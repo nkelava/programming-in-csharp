@@ -27,8 +27,8 @@ namespace BankTransferSlip
             else
             {
                 MessageBox.Show("There are no records to show.\n\n" +
-                                "1. Make sure you entered either payer or recipient information or both.\n" +
-                                "2. Make sure entered information is correct.");
+                                "1. Make sure you entered the payer's information, the recipient's information or both.\n" +
+                                "2. Make sure the entered information is correct.");
             }
             
             dbHandler.CloseDatabaseConnection();

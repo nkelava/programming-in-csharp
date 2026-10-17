@@ -8,8 +8,8 @@ namespace OverflowChecking
         {
             int intNumber = 0;
             long longNumber = int.MaxValue;
-            // Uncomment lower variable and comment out upper variable to catch overflow
-            // Reverse that change back so that overflow does not happen
+            // Uncomment the line below and comment out the line above to cause an overflow
+            // Revert that change to prevent the overflow
             //long longNumber = long.MaxValue;
 
             AssignLongToInt(intNumber, longNumber);

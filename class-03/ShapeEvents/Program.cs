@@ -27,13 +27,13 @@ namespace ShapeEvents
 
 		private static void printMainMenu()
 		{
-			Console.WriteLine("You are in main menu - choose action\n");
-			Console.WriteLine("1 - Insert new circle");
-			Console.WriteLine("2 - Insert new square");
-			Console.WriteLine("3 - Insert new triangle");
-			Console.WriteLine("4 - Print total area of all inserted elements");
-			Console.WriteLine("5 - Print total perimeter of all inserted elements");
-			Console.WriteLine("6 - Print properties of all inserted elements");
+			Console.WriteLine("You are in the main menu - choose an action\n");
+			Console.WriteLine("1 - Insert a new circle");
+			Console.WriteLine("2 - Insert a new square");
+			Console.WriteLine("3 - Insert a new triangle");
+			Console.WriteLine("4 - Print the total area of all inserted elements");
+			Console.WriteLine("5 - Print the total perimeter of all inserted elements");
+			Console.WriteLine("6 - Print the properties of all inserted elements");
 			Console.WriteLine("Q - Exit");
 			Console.Write("\nAction: ");
 
@@ -73,7 +73,7 @@ namespace ShapeEvents
 				}
 				else if(s.ToUpper()=="Q")
 				{					
-					Console.WriteLine ("\n\nExit of application");
+					Console.WriteLine ("\n\nExiting the application");
 					break;
 				}
 			}			
@@ -83,7 +83,7 @@ namespace ShapeEvents
 		{
 			Console.Clear();
 
-			Console.WriteLine("You are in sub menu for circle - insert the value of radius");
+			Console.WriteLine("You are in the circle submenu - insert the radius");
 			Console.Write("\nRadius = ");
 			string input;
 
@@ -100,7 +100,7 @@ namespace ShapeEvents
 						DataModel.Add(myCircle);
 
 						Console.WriteLine("\nNew circle inserted!");
-						Console.Write("Do you want to insert one more circle(y/n): ");
+						Console.Write("Do you want to insert one more circle (y/n): ");
 
 						string s;						
 						while (true)
@@ -123,7 +123,7 @@ namespace ShapeEvents
 					}
 					catch
 					{
-						Console.WriteLine("\nValue for radius is not correct!");
+						Console.WriteLine("\nThe value for the radius is not correct!");
 						Console.Write("\nRadius = ");
 					}
 				}
@@ -134,8 +134,8 @@ namespace ShapeEvents
 		{
 			Console.Clear();
 
-			Console.WriteLine("You are in sub menu for square - insert the value for the side of square");
-			Console.Write("\nSide of square = ");
+			Console.WriteLine("You are in the square submenu - insert the length of the side of the square");
+			Console.Write("\nSide of the square = ");
 			string input;
 			while (true)
 			{				
@@ -150,7 +150,7 @@ namespace ShapeEvents
 						DataModel.Add(mySquare);
 
 						Console.WriteLine("\nNew square inserted!");
-						Console.Write("Do you want to insert one more square(y/n): ");
+						Console.Write("Do you want to insert one more square (y/n): ");
 
 						string s;
 						while (true)
@@ -158,7 +158,7 @@ namespace ShapeEvents
 							s=Console.ReadLine().Trim();				
 							if(s == "y")
 							{
-								Console.Write("\nSide of square = ");
+								Console.Write("\nSide of the square = ");
 								break;								
 							}
 							else if(s == "n")
@@ -173,8 +173,8 @@ namespace ShapeEvents
 					}
 					catch
 					{
-						Console.WriteLine("\nValue for the side of square is not correct!");
-						Console.Write("\nSide of square = ");
+						Console.WriteLine("\nThe value for the side of the square is not correct!");
+						Console.Write("\nSide of the square = ");
 					}
 				}
 			}
@@ -184,8 +184,8 @@ namespace ShapeEvents
         {
 			Console.Clear();
 
-			Console.WriteLine("You are in sub menu for triangle - insert the value for the side of triangle");
-			Console.Write("\nSide of triangle = ");
+			Console.WriteLine("You are in the triangle submenu - insert the length of the side of the triangle");
+			Console.Write("\nSide of the triangle = ");
 			string input;
 
 			while (true)
@@ -201,7 +201,7 @@ namespace ShapeEvents
 						DataModel.Add(myTriangle);	
 
 						Console.WriteLine("\nNew triangle inserted!");
-						Console.Write("Do you want to insert one more triangle(y/n): ");
+						Console.Write("Do you want to insert one more triangle (y/n): ");
 
 						string s;
 
@@ -210,7 +210,7 @@ namespace ShapeEvents
 							s = Console.ReadLine().Trim();
 							if (s == "y")
 							{
-								Console.Write("\nSide of triangle = ");
+								Console.Write("\nSide of the triangle = ");
 								break;
 							}
 							else if (s == "n")
@@ -225,8 +225,8 @@ namespace ShapeEvents
 					}
 					catch
 					{
-						Console.WriteLine("\nValue for the side of triangle is not correct!");
-						Console.Write("\nSide of triangle = ");
+						Console.WriteLine("\nThe value for the side of the triangle is not correct!");
+						Console.Write("\nSide of the triangle = ");
 					}
 				}
 			}
@@ -236,7 +236,7 @@ namespace ShapeEvents
 		{
 			Console.Clear();
 			Console.WriteLine();			
-			Console.WriteLine("Total area of all inserted elements is: "+DataModel.getTotalArea());
+			Console.WriteLine("The total area of all inserted elements is: "+DataModel.getTotalArea());
 			BackOption();
 		}
 
@@ -244,14 +244,14 @@ namespace ShapeEvents
 		{
 			Console.Clear();
 			Console.WriteLine();			
-			Console.WriteLine("Total perimeter of all inserted elements is: "+DataModel.getTotalPerimeter());
+			Console.WriteLine("The total perimeter of all inserted elements is: "+DataModel.getTotalPerimeter());
 			BackOption();
 		}
 
 		private static void printAllData()
 		{
 			Console.Clear();
-			Console.WriteLine("DATA OF ALL ELEMENTS IN LIST");			
+			Console.WriteLine("DATA OF ALL ELEMENTS IN THE LIST");			
 
 			foreach(Shape shape in DataModel.getAllElementsList())
 			{
@@ -263,7 +263,7 @@ namespace ShapeEvents
 
 		private static void BackOption()
         {
-            Console.WriteLine("\n\nPress anything to go back...");
+            Console.WriteLine("\n\nPress any key to go back...");
 			Console.ReadKey();
 			Console.Clear();
 			printMainMenu();

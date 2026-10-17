@@ -42,7 +42,7 @@ namespace MyBank
                 var newAccount = new Account(
                     nameTextBox.Text,
                     lastNameTextBox.Text,
-                    (DateTime)birtdayDatePicker.SelectedDate,
+                    (DateTime)birthdayDatePicker.SelectedDate,
                     long.Parse(oibTextBox.Text),
                     (maleRadioButton.IsChecked == true) ? SexType.Male : SexType.Female,
                     BankAccounts.GenerateAccountNumber(),
@@ -54,7 +54,7 @@ namespace MyBank
             }
             catch (InvalidOperationException)
             {
-                MessageBox.Show("Please, enter all information asked in the form except account number.");
+                MessageBox.Show("Please enter all the information requested in the form, except the account number.");
             }
         }
 
@@ -71,7 +71,7 @@ namespace MyBank
                     nameTextBox.Text = account.FirstName;
                     lastNameTextBox.Text = account.LastName;
                     oibTextBox.Text = account.OIB.ToString();
-                    birtdayDatePicker.SelectedDate = account.Birthday;
+                    birthdayDatePicker.SelectedDate = account.Birthday;
 
                     if (account.Sex == SexType.Male)
                     {
@@ -89,7 +89,7 @@ namespace MyBank
             }
             catch (FormatException)
             {
-                MessageBox.Show("Please, enter users OIB for search.");
+                MessageBox.Show("Please enter the user's OIB to search.");
             }
         }
 

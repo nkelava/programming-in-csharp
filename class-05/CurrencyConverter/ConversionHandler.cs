@@ -23,8 +23,8 @@ namespace CurrencyConverter
         {
             try
             {
-                var result = (decimal.Parse(FixFormat(amount)) * decimal.Parse(currFrom.srednji_tecaj));
-                result /= decimal.Parse(currTo.srednji_tecaj);
+                var result = (decimal.Parse(FixFormat(amount)) * decimal.Parse(currFrom.MiddleRate));
+                result /= decimal.Parse(currTo.MiddleRate);
                 return Math.Round(result, 2);
             }
             catch

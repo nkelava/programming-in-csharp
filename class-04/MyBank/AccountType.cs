@@ -3,7 +3,7 @@
     enum AccountType
     {
         Savings,
-        Gyro,
+        Giro,
         Current
     }
 }

@@ -12,7 +12,7 @@ namespace NumberFormatting
 
             try 
             {
-                numbersToDivide.Add(GetUserIntInput("divident"));
+                numbersToDivide.Add(GetUserIntInput("dividend"));
                 numbersToDivide.Add(GetUserIntInput("divisor"));
 
                 Console.WriteLine("\nRESULTS:");
@@ -23,7 +23,7 @@ namespace NumberFormatting
                 }
                 else
                 {
-                    Console.WriteLine("Divisor can not be 0. Division by 0 is undefined.");
+                    Console.WriteLine("The divisor cannot be 0. Division by 0 is undefined.");
                 }
             }
             catch (FormatException fex) 
@@ -35,9 +35,9 @@ namespace NumberFormatting
             Console.ReadKey();
         }
 
-        static public double GetUserIntInput(string postiion)
+        static public double GetUserIntInput(string position)
         {
-            Console.Write($"Enter {postiion}: ");
+            Console.Write($"Enter {position}: ");
             return double.Parse(Console.ReadLine());
         }
 

@@ -31,7 +31,7 @@ namespace ShapeEvents
 		public override void printData()
 		{
 			Console.WriteLine($"\nMy type: {this.GetType().Name}");
-			Console.WriteLine($"Side of square = {oneSide}");
+			Console.WriteLine($"Side of the square = {oneSide}");
 			Console.WriteLine($"X position = {xPos}");
 			Console.WriteLine($"Y position = {yPos}");
 		}
