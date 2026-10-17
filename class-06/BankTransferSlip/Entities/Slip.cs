@@ -7,6 +7,9 @@ namespace BankTransferSlip.Entities
 {
     class Slip
     {
+        private const string _ibanPattern = @"^([a-zA-Z]{2})([0-9]{19})$";
+        private const string _ibanFormat = "An IBAN consists of 2 letters and 19 digits.\nE.g. HR0123456789123456789";
+
         public User Payer { get; private set; }
         public User Recipient { get; private set; }
         public bool Urgent { get; private set; }
@@ -41,9 +44,13 @@ namespace BankTransferSlip.Entities
             {
                 throw new CurrencyFormatException("Currency format error.\n\nThe currency should consist of 3 letters, e.g. EUR.");
             }
-            if (!Regex.IsMatch(this.Recipient.IBAN, @"^([a-zA-Z]{2})([0-9]{19})$"))
+            if (!Regex.IsMatch(this.Payer.IBAN, _ibanPattern))
             {
-                throw new IBANFormatException("IBAN format error.\n\nAn IBAN consists of 2 letters and 19 digits.\nE.g. HR0123456789123456789");
+                throw new IBANFormatException($"Payer IBAN format error.\n\n{_ibanFormat}");
+            }
+            if (!Regex.IsMatch(this.Recipient.IBAN, _ibanPattern))
+            {
+                throw new IBANFormatException($"Recipient IBAN format error.\n\n{_ibanFormat}");
             }
             if (!Regex.IsMatch(this.Model, @"^([a-zA-Z]{2})([0-9]{2})$"))
             {
