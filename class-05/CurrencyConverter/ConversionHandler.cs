@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Net.Http;
 
 
@@ -23,14 +24,20 @@ namespace CurrencyConverter
         {
             try
             {
-                var result = (decimal.Parse(FixFormat(amount)) * decimal.Parse(currFrom.MiddleRate));
-                result /= decimal.Parse(currTo.MiddleRate);
+                var result = (ParseDecimal(amount) * ParseDecimal(currFrom.MiddleRate));
+                result /= ParseDecimal(currTo.MiddleRate);
                 return Math.Round(result, 2);
             }
             catch
             {
                 return 0;
             }
+        }
+
+        // Accepts both "1,5" and "1.5" regardless of the language settings of the computer
+        private static decimal ParseDecimal(string input)
+        {
+            return decimal.Parse(FixFormat(input), CultureInfo.InvariantCulture);
         }
 
         private static string FixFormat(string input)
