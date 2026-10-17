@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,11 +10,24 @@ namespace TicTacToe.Services
 {
     public class FileHandler
     {
+        public static string LeaderboardPath { get; } = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData, Environment.SpecialFolderOption.Create),
+            "TicTacToe", "leaderboard.json");
+
+        // A new leaderboard file starts with the players from Leaderboard/leaderboard.json
+        private static readonly string _initialLeaderboardPath = Path.Combine(AppContext.BaseDirectory, "Leaderboard", "leaderboard.json");
+
         private string _path;
         
         public FileHandler(string path)
         {
             _path = path;
+
+            if (!File.Exists(_path))
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(_path));
+                File.Copy(_initialLeaderboardPath, _path);
+            }
         }
 
         private void UpdateScore(ref List<Player> players, Player player)

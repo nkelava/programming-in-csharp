@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Windows;
+using Avalonia.Controls;
+using Avalonia.Interactivity;
 using TicTacToe.Entities;
 using TicTacToe.Services;
 
@@ -10,10 +11,10 @@ namespace TicTacToe
         public LeaderboardWindow()
         {
             InitializeComponent();
-            var fileHandler = new FileHandler(@"D:\ProjDev\C#\Lab_vjezbe_C#\vjezba07\TicTacToe\Leaderboard\leaderboard.json");
+            var fileHandler = new FileHandler(FileHandler.LeaderboardPath);
             var players = fileHandler.ReadFromFile();
 
-            listViewUsers.ItemsSource = players;
+            dataGridUsers.ItemsSource = players;
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

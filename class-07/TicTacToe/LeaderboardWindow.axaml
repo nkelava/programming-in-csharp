@@ -1,50 +1,44 @@
 ﻿<Window x:Class="TicTacToe.LeaderboardWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TicTacToe"
-        mc:Ignorable="d"
-        Title="Ultimate Tic-Tac-Toe" Height="450" Width="800" Icon="Images/AppIcon.ico"
+        xmlns:entities="clr-namespace:TicTacToe.Entities"
+        Title="Ultimate Tic-Tac-Toe" Height="411" Width="784" Icon="/Images/AppIcon.ico"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize">
+        CanResize="False">
 
-    <Window.Resources>
-        <Style TargetType="Label">
+    <Window.Styles>
+        <Style Selector="Label">
             <Setter Property="Foreground" Value="#FF3498DB"/>
             <Setter Property="FontSize" Value="18"/>
             <Setter Property="FontWeight" Value="Medium"/>
         </Style>
 
-        <Style TargetType="ListViewItem">
-            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Style Selector="DataGridCell">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="Background" Value="White"/>
             <Setter Property="FontSize" Value="14"/>
         </Style>
 
-        <Style TargetType="GridViewColumnHeader">
-            <Setter Property="Margin" Value="0,2,0,10"/>
+        <Style Selector="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="FontWeight" Value="Medium"/>
-            <Setter Property="IsEnabled" Value="false"/>
         </Style>
-    </Window.Resources>
+    </Window.Styles>
 
     <Grid Background="#FFFDFD99">
-        <Image HorizontalAlignment="Left" Height="67" Margin="10,10,0,0" VerticalAlignment="Top" Width="186" Source="Images/Logo.png" />
+        <Image HorizontalAlignment="Left" Height="67" Margin="10,10,0,0" VerticalAlignment="Top" Width="186" Source="/Images/Logo.png" />
         <Label HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="282,41,0,0" Width="270" FontSize="38" FontWeight="SemiBold" Foreground="#FF35D479" FontStretch="SemiCondensed" Height="60">
             <TextBlock TextDecorations="Underline">Top 5 players</TextBlock>
         </Label>
 
-        <ListView Margin="302,109,253,92" Name="listViewUsers">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Name" Width="110" DisplayMemberBinding="{Binding Name}"/>
-                    <GridViewColumn Header="Score" Width="110" DisplayMemberBinding="{Binding Score}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <DataGrid Margin="302,109,253,92" Name="dataGridUsers" Background="White" IsReadOnly="True"
+                  CanUserSortColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Width="110" x:DataType="entities:Player" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Score" Width="110" x:DataType="entities:Player" Binding="{Binding Score}"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
         <Button Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="308,343,0,0" VerticalAlignment="Top" Height="31" Width="219" FontSize="14" Background="#FF35D479" Foreground="White" Click="btnBack_Click"/>
     </Grid>

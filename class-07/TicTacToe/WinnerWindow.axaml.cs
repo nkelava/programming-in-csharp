@@ -1,5 +1,8 @@
-﻿using System.ComponentModel;
-using System.Windows;
+﻿using System.Linq;
+using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Interactivity;
 using TicTacToe.Entities;
 
 
@@ -19,7 +22,7 @@ namespace TicTacToe
             this.Close();
         }
 
-        private void OpenMainWindow(object sender, CancelEventArgs e)
+        private void OpenMainWindow(object sender, WindowClosingEventArgs e)
         {
             var mainWindow = new MainWindow();
             mainWindow.Show();
@@ -27,7 +30,9 @@ namespace TicTacToe
 
         private void CloseAllWindows()
         {
-            foreach (Window window in Application.Current.Windows)
+            var desktop = (IClassicDesktopStyleApplicationLifetime)Application.Current.ApplicationLifetime;
+
+            foreach (Window window in desktop.Windows.ToList())
             {
                 window.Close();
             }
@@ -35,7 +40,7 @@ namespace TicTacToe
 
         private void btnFinish_Click(object sender, RoutedEventArgs e)
         {
-            this.Closing += new CancelEventHandler(this.OpenMainWindow);
+            this.Closing += this.OpenMainWindow;
 
             CloseAllWindows();
         }

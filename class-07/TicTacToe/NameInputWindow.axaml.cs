@@ -1,5 +1,6 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using Avalonia.Controls;
+using Avalonia.Input;
+using Avalonia.Interactivity;
 using TicTacToe.Entities;
 
 
@@ -28,7 +29,7 @@ namespace TicTacToe
             }
         }
 
-        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        private void TextBox_GotFocus(object sender, FocusChangedEventArgs e)
         {
             var textBox = (TextBox)sender;
 
@@ -40,7 +41,7 @@ namespace TicTacToe
         {
             var textBox = (TextBox)sender;
 
-            if (textBox.Text == string.Empty)
+            if (string.IsNullOrEmpty(textBox.Text))
             {
                 textBox.Text = _inputPlaceholder;
                 textBox.GotFocus += TextBox_GotFocus;
@@ -55,7 +56,7 @@ namespace TicTacToe
             this.Close();
         }
 
-        private void btnContinue_Click(object sender, RoutedEventArgs e)
+        private async void btnContinue_Click(object sender, RoutedEventArgs e)
         {
             var player1 = new Player(1, (!txtBoxNamePlayer1.Text.Equals(_inputPlaceholder)) ? txtBoxNamePlayer1.Text : _defaultNameP1, _iconP1, _colorP1);
             var player2 = new Player(2, (!txtBoxNamePlayer2.Text.Equals(_inputPlaceholder)) ? txtBoxNamePlayer2.Text : _defaultNameP2, _iconP2, _colorP2);
@@ -69,7 +70,7 @@ namespace TicTacToe
             }
             else
             {
-                MessageBox.Show("Usernames must be different.\nPlease change one of them.");
+                await MessageBox.Show(this, "Usernames must be different.\nPlease change one of them.");
             }
         }
     }

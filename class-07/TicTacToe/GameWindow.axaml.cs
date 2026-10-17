@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
+using Avalonia.Controls;
+using Avalonia.Interactivity;
+using Avalonia.Media;
 using TicTacToe.Entities;
 using TicTacToe.Services;
 
@@ -47,14 +47,14 @@ namespace TicTacToe
         {
             foreach (var btn in _gridButtons)
             {
-                btn.Click += new RoutedEventHandler(this.PlayMove);
+                btn.Click += this.PlayMove;
             }
         }
 
         private void ModifyButtonAfterClick(Button button, Player player)
         {
             button.Content = player.Icon;
-            button.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom(player.Color));
+            button.Foreground = SolidColorBrush.Parse(player.Color);
             button.IsEnabled = false;
         }
 
@@ -73,10 +73,10 @@ namespace TicTacToe
             }
         }
 
-        private void ShowWinner(Player player)
+        private async Task ShowWinner(Player player)
         {
             var winnerWindow = new WinnerWindow(player, _game.Status);
-            winnerWindow.ShowDialog();
+            await winnerWindow.ShowDialog(this);
         }
 
         private void ResetButtons()
@@ -91,7 +91,7 @@ namespace TicTacToe
 
         private void UpdateLeaderboardFile(object sender, EventArgs e)
         {
-            var fileHandler = new FileHandler("D:\\ProjDev\\C#\\Lab_vjezbe_C#\\vjezba07\\TicTacToe\\Leaderboard\\leaderboard.json");
+            var fileHandler = new FileHandler(FileHandler.LeaderboardPath);
             fileHandler.SaveOrUpdatePlayers(new List<Player>() { _game.Player1, _game.Player2 });
         }
 
@@ -102,7 +102,7 @@ namespace TicTacToe
             _game.ResetGame();
         }
 
-        private void PlayMove(object sender, RoutedEventArgs e)
+        private async void PlayMove(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
             Player currentPlayer = (_game.IsPlayer1Turn) ? _game.Player1 : _game.Player2;
@@ -120,7 +120,7 @@ namespace TicTacToe
                     HighlightWinningLine();
                 }
 
-                ShowWinner(currentPlayer);
+                await ShowWinner(currentPlayer);
                 StartNextGame();
             }
 

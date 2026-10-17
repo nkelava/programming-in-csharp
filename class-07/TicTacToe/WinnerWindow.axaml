@@ -1,0 +1,14 @@
+﻿<Window x:Class="TicTacToe.WinnerWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ultimate Tic-Tac-Toe" Height="221" Width="334" Icon="/Images/AppIcon.ico"
+        WindowStartupLocation="CenterScreen"
+        CanResize="False">
+    <Grid Background="#FFFDFD99">
+        <Image HorizontalAlignment="Left" Height="87" Margin="53,16,0,0" VerticalAlignment="Top" Width="232" Source="/Images/Logo.png"/>
+        <Label Name="lblGameResult" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="53,108,0,0" Width="232" FontWeight="SemiBold" FontSize="28" Foreground="#FF3498DB"/>
+
+        <Button Name="btnPlayAgain" Content="Play again" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="53,178,0,0" Background="#FF35D479" Foreground="White" Height="28" Click="btnPlayAgain_Click"/>
+        <Button Name="btnFinish" Content="Finish" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="185,178,0,0" Background="#FF35D479" Foreground="White" Height="28" Click="btnFinish_Click"/>
+    </Grid>
+</Window>
