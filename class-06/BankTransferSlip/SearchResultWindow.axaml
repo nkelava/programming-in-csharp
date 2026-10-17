@@ -1,0 +1,9 @@
+﻿<Window x:Class="BankTransferSlip.SearchResultWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Search Results" Height="411" Width="784">
+    <Grid>
+        <DataGrid Name="dataGridSearch" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="355" VerticalAlignment="Top" Width="792"/>
+        <Button Name="btnCloseSearch" Content="Close" HorizontalAlignment="Left" Margin="350,372,0,0" VerticalAlignment="Top" Width="106" Height="29" Click="btnCloseSearch_Click"/>
+    </Grid>
+</Window>

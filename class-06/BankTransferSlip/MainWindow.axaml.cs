@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Windows;
-using System.Windows.Controls;
+using Avalonia.Controls;
+using Avalonia.Input;
+using Avalonia.Interactivity;
 using BankTransferSlip.Exceptions;
 using BankTransferSlip.Entities;
 using BankTransferSlip.Services;
@@ -24,7 +25,7 @@ namespace BankTransferSlip
             InitializeComponent();
         }
 
-        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        private void TextBox_GotFocus(object sender, FocusChangedEventArgs e)
         {
             var textBox = (TextBox)sender;
 
@@ -36,7 +37,7 @@ namespace BankTransferSlip
         {
             var textBox = (TextBox)sender;
 
-            if (textBox.Text == string.Empty)
+            if (string.IsNullOrEmpty(textBox.Text))
             {
                 textBox.Text = textBox.Tag.ToString();
                 textBox.GotFocus += TextBox_GotFocus;
@@ -53,7 +54,7 @@ namespace BankTransferSlip
             return text.Substring(start, end).ToUpper() + text.Substring(end);
         }
 
-        private void btnProcess_Click(object sender, RoutedEventArgs e)
+        private async void btnProcess_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -73,28 +74,28 @@ namespace BankTransferSlip
                 newSlip.CheckFields();
                 SaveRecordToDatabase(newSlip);
                 
-                MessageBox.Show("SUCCESS!!!\n\nYour transfer was successful.");
+                await MessageBox.Show(this, "SUCCESS!!!\n\nYour transfer was successful.");
                 btnClear_Click(sender, e);
             }
             catch (FormatException)
             {
-                MessageBox.Show("Amount error. Please make sure you only enter digits.");
+                await MessageBox.Show(this, "Amount error. Please make sure you only enter digits.");
             }
             catch (CurrencyFormatException currencyException)
             {
-                MessageBox.Show(currencyException.Message);
+                await MessageBox.Show(this, currencyException.Message);
             }
             catch (IBANFormatException IBANException)
             {
-                MessageBox.Show(IBANException.Message);
+                await MessageBox.Show(this, IBANException.Message);
             }
             catch (ModelFormatException modelException)
             {
-                MessageBox.Show(modelException.Message);
+                await MessageBox.Show(this, modelException.Message);
             }
             catch (ReferenceNumberFormatException referenceNumberException)
             {
-                MessageBox.Show(referenceNumberException.Message);
+                await MessageBox.Show(this, referenceNumberException.Message);
             }
         }
 
@@ -132,7 +133,7 @@ namespace BankTransferSlip
             var payer = new BaseUser(txtBoxPayerName.Text, txtBoxPayerAddress.Text);
             var recipient = new BaseUser(txtBoxRecipientName.Text, txtBoxRecipientAddress.Text);
 
-            searchWindow.ShowSearchResult(payer, recipient);
+            searchWindow.ShowSearchResult(this, payer, recipient);
         }
     }
 }
