@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
@@ -51,6 +52,7 @@ namespace BankTransferSlip
 
         private string ToUpperSubstring(string text, int start, int end)
         {
+            end = Math.Min(end, text.Length);
             return text.Substring(start, end).ToUpper() + text.Substring(end);
         }
 
@@ -65,7 +67,7 @@ namespace BankTransferSlip
                             txtBoxRecipientAddress.Text,
                             chkBoxUrgent.IsChecked.Value,
                             txtBoxCurrency.Text.ToUpper(),
-                            decimal.Parse(FixFormat(txtBoxAmount.Text)),
+                            decimal.Parse(FixFormat(txtBoxAmount.Text), CultureInfo.InvariantCulture),
                             ToUpperSubstring(txtBoxPayerIBAN.Text, 0, 2),
                             ToUpperSubstring(txtBoxRecipientIBAN.Text, 0, 2),   
                             ToUpperSubstring(txtBoxModel.Text, 0, 2),
@@ -77,7 +79,7 @@ namespace BankTransferSlip
                 await MessageBox.Show(this, "SUCCESS!!!\n\nYour transfer was successful.");
                 btnClear_Click(sender, e);
             }
-            catch (FormatException)
+            catch (Exception exception) when (exception is FormatException || exception is OverflowException)
             {
                 await MessageBox.Show(this, "Amount error. Please make sure you only enter digits.");
             }
